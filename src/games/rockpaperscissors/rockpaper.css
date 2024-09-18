@@ -10,13 +10,13 @@
 
 #rockpapergame header {
   background-color: white;
-  padding: 0.5rem;
+  padding-bottom: 0.2rem;
 }
 
 #rockpapergame h1 {
   color: #24272E;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 #rockpapergame .scoreboard {
@@ -24,10 +24,10 @@
   width: 12rem;
   margin: 1rem auto;
   color: white;
-  font-size: 3.5rem;
+  font-size: 3rem;
   border-radius: 4px;
   text-align: center;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   position: relative;
 }
 
@@ -40,18 +40,18 @@
 
 #rockpapergame #user-label {
   position: absolute;
-  top: 2.5rem;
+  top: 1.5rem;
   left: -2rem;
 }
 
 #rockpapergame #bot-label {
   position: absolute;
-  top: 2.5rem;
+  top: 1.5rem;
   right: -2rem;
 }
 
 #rockpapergame .result {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: white;
 }
 
@@ -61,7 +61,7 @@
 }
 
 #rockpapergame .choices {
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
 }
 
@@ -75,7 +75,7 @@
 }
 
 #rockpapergame img {
-  width: 150px;
+  width: 120px;
 }
 
 #rockpapergame .choice:hover {
@@ -103,6 +103,7 @@
   font-weight: bold;
   font-size: 1rem;
   border-radius: 5px;
+  margin-bottom: 0.5rem;
 }
 
 #rockpapergame #reset-btn:hover {
