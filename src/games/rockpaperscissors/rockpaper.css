@@ -113,16 +113,19 @@
 #rockpapergame .green-glow {
   border: 6px solid #4dcc7d;
   box-shadow: 0 0 10px #31b43a;
+  border-radius: 50%;
 }
 
 #rockpapergame .red-glow {
   border: 6px solid #fc121b;
   box-shadow: 0 0 10px #d01115;
+  border-radius: 50%;
 }
 
 #rockpapergame .yellow-glow {
   border: 6px solid yellow;
   box-shadow: 0 0 10px yellowgreen;
+  border-radius: 50%;
 }
 
 @media only screen and (max-width: 800px) {

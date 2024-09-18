@@ -18,43 +18,36 @@ const convertToWord = letter => {
   return "Scissors";
 };
 
-const handleClick = (choice) => {
+const handleClick = (e) => {
+  let choice = e.target.id;
   const botChoice = getComputerChoice();
   switch (choice + botChoice) {
+    //Winning Combinations
     case 'rs':
     case 'pr':
     case 'sp':
-      win(choice, botChoice);
+      setUserScore(userScore + 1);
+      setMessage(`${convertToWord(choice)} beats ${convertToWord(botChoice)}. You win! 🔥`);
+      e.target.classList.add("green-glow");
+      setTimeout(() => e.target.classList.remove("green-glow"), 1000);
       break;
+    //Losing Combinations
     case 'sr':
     case 'rp':
     case 'ps':
-      lose(choice, botChoice);
+      setComputerScore(computerScore + 1);
+      setMessage(`${convertToWord(choice)} loses to ${convertToWord(botChoice)}. You lose! 💩`);
+      e.target.classList.add("red-glow");
+      setTimeout(() => e.target.classList.remove("red-glow"), 1000);
       break;
+    //Draw Combinations
     case 'ss':
     case 'pp':
     case 'rr':
-      draw(choice, botChoice);
+      setMessage(`${convertToWord(choice)} and ${convertToWord(botChoice)}: It's a draw! 🤷`);
+      e.target.classList.add("yellow-glow");
+      setTimeout(() => e.target.classList.remove("yellow-glow"), 1000);
   };
-};
-
-const applyGlow = (element, className) => {
-  element.classList.add(className);
-  setTimeout(() => element.classList.remove(className), 1000); 
-};
-
-const win = (choice, botChoice) => {
- setUserScore(userScore + 1);
-  setMessage(`${convertToWord(choice)} beats ${convertToWord(botChoice)}. You win! 🔥`);
-};
-
-const lose = (choice, botChoice) => {
-  setComputerScore(computerScore + 1);
-  setMessage(`${convertToWord(choice)} loses to ${convertToWord(botChoice)}. You lose! 💩`);
-};
-
-const draw = (choice, botChoice) => {
-  setMessage(`${convertToWord(choice)} and ${convertToWord(botChoice)}: It's a draw! 🤷`);
 };
 
 const handleReset = () => {
@@ -69,6 +62,7 @@ const handleReset = () => {
       <header>
         <h1>Rock Paper Scissors</h1>
       </header>
+
       <div className="scoreboard">
         <div className="badge" id="user-label">
           user
@@ -78,24 +72,25 @@ const handleReset = () => {
         </div>
         <span id="user-score">{userScore}</span>:<span id="computer-score">{computerScore}</span>
       </div>
+
       <div className="result">
         <p>{message}</p>
       </div>
 
       <div className="choices">
-        <div className="choice" id="r">
-          <img src="/rock-paper-imgs/rock.png" value="rock" onClick={()=>handleClick('r')}/>
+        <div className="choice" >
+          <img src="/rock-paper-imgs/rock.png" value="rock" id="r" onClick={handleClick}/>
         </div>
-        <div className="choice" id="p">
-          <img src="/rock-paper-imgs/paper.png" value="paper" onClick={()=>handleClick('p')}/>
+        <div className="choice">
+          <img src="/rock-paper-imgs/paper.png" value="paper" id="p" onClick={handleClick} />
         </div>
-        <div className="choice" id="s">
-          <img src="/rock-paper-imgs/scissors.png" value="scissors" onClick={()=>handleClick('s')} />
+        <div className="choice">
+          <img src="/rock-paper-imgs/scissors.png" value="scissors" id="s" onClick={handleClick}/>
         </div>
       </div>
 
       <p id="action-message">Make your move.</p>
-      
+
       <div className="reset">
         <button id="reset-btn" onClick={handleReset}>Reset</button>
       </div>
